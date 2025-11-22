@@ -6,7 +6,158 @@
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgb(246, 251, 255);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;  
 }
+
+.hidden{
+    display: none !important;
+}
+/* ===================================================================== */
+
+.container{
+    /* width: 500px; */
+    min-width: 100%;
+    min-height: 100%;
+    background-color: white;
+    box-shadow: 0 3px 15px rgba(154, 154, 154, 0.2);
+    padding: 30px;  
+    border-radius: 15px;
+
+}
+.app-control-cont{
+    background-color: rgb(230, 241, 244);
+    width: 100%;
+    padding: 20px;
+    height: 300px;
+    height: 700px;
+}
+
+
+
+.feed-cont{
+    background-color: rgb(173, 198, 206);
+    width: 100%;
+    height: 100px;
+    padding: 20px;
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==================================================== */
+.creat-post-modal{
+    background-color: rgba(232, 55, 55, 0.2);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-post-cont{
+    width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+}
+.creat-post-modal h2{
+    width: 100%;
+    width: fit-content;
+    /* background-color: rgb(130, 124, 124); */
+    padding: 5px 0;
+    border-bottom: 1px solid rgb(197, 197, 197);
+    margin-bottom: 20px;
+
+}
+.input-feild-cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    /* background-color: rgb(105, 91, 91); */
+}
+.input-feild-cont input{
+    width: 100%;
+    outline: none;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 12px;
+    padding: 15px 10px;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+.input-feild-cont input:focus{
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+
+}
+
+
+.create-post-btns{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+    /* background-color: rgb(105, 91, 91); */
+    width: 100%;
+
+}
+.create-post-btns button{
+    outline: none;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+.create-post-btns button:active{
+    transform: scale(0.9);
+}
+
+.create-btn{
+    background: linear-gradient(160deg, rgb(53, 181, 223), rgb(6, 86, 113));
+    color: white;
+}
+.cancle-btn{
+    /* background: linear-gradient(160deg, rgb(214, 215, 215), rgb(144, 144, 144)); */
+    background-color: rgb(193, 193, 193);
+    color: rgb(56, 50, 50);
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
