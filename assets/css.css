@@ -6,7 +6,6 @@
 body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgb(246, 251, 255);
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,158 +17,317 @@ body{
 }
 /* ===================================================================== */
 
-.container{
-    /* width: 500px; */
-    width: 600px;
-    /* min-height: 100%; */
+.app{
+    width: 1000px;
     background-color: white;
     box-shadow: 0 3px 15px rgba(154, 154, 154, 0.2);
     padding: 30px;  
-    border-radius: 15px;
-
-}
-.app-control-cont{
-    /* background-color: rgb(230, 241, 244); */
-    width: 100%;
-    /* padding: 20px; */
-    /* height: 300px; */
-    height: 700px;
-}
+    border-radius: 15px;}
 
 .header{
+    /* background-color: rgb(207, 142, 142); */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 35px;
-    padding: 10px 0;
-    border-bottom: 4px solid rgb(111, 162, 234);
-    border-radius: 15px;
+    border-bottom: 1px solid rgb(211, 211, 211);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
 }
-.header h2{
-    font-size: 30px;
-    color: rgb(39, 122, 237);
-    font-weight: 900;
-}
-.header button{
-    /* font-size: 30px; */
-    background-color: rgb(39, 122, 237);
-    color: white;
+.header h1{
+    color: rgb(231, 47, 130);
     font-weight: 700;
-    padding: 10px 25px;
-    outline: none;
+    font-size: 40px;
+
+}
+
+
+
+.theme-btn{
+    cursor: pointer;
     border: none;
-    border-radius: 18px;
+    outline: none;
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease;
+}
+.theme-btn:hover{
+    background-color: rgb(5, 68, 113);
+}
+.theme-btn:active{
+    transform: scale(0.9);
+}
+.theme-btn svg{
+    height: 22px;
+    width: 22px;
+}
+.sunIcon{
+    color: rgb(255, 204, 0);
+}
+.moonIcon{
+    color: rgb(255, 255, 255);
+}
+/* ------------------------------------ */
+
+.header-items-cont{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+.status-cont{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.status-cont button{
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    color: white;
+    padding: 4px 10px;
     cursor: pointer;
     transition: 0.3s ease;
 }
-.header button:active{
+.status-cont button:active{
+    transform: scale(0.9);
+}
+.logout{
+    background-color: rgb(44, 76, 98);
+    font-size: 12px;
+    font-weight: 600;
+}
+.add-post-btn{
+    font-weight: 600;
+    font-size: 17px;
+    background-color: rgb(231, 47, 130);
+}
+
+.profile-placeholder{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+.profile-placeholder img{
+    width: 100%;
+    height: 40px;
+}
+
+
+
+
+
+/* ============================================================== */
+
+.main-cont{
+    background-color: rgb(245, 155, 155);
+    display: flex;
+
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+.login-form h2{
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.login-form input{
+    width: 100%;
+    border-radius: 10px;
+    padding: 15px 10px;
+    outline: none;
+    border: 1px solid rgb(203, 203, 203);
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.auth-msg{
+    color: rgb(194, 22, 22);
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+.form-btns-cont{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.login-btn{
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    border: none;
+    outline: none;
+    background-color: rgb(240, 28, 123);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.login-btn:active{
+    transform: scale(0.9);
+}
+.signup-btn{
+    padding: 15px;
+    font-size: 18px;
+    color: white;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    background-color: rgb(240, 28, 123);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.signup-btn:active{
+    transform: scale(0.9);
+}
+
+.grey-msg-btn{
+    color: rgb(183, 183, 183);
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.grey-msg-btn:active{
     transform: scale(0.9);
 }
 
 
-.feed-cont{
-    /* background-color: rgb(190, 235, 250); */
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.empty-feed-msg{
-    text-align: center;
-    /* color: rgb(65, 62, 62); */
-    font-style: italic;
-    
-}
-
-
-
-
-.post-cont{
-    width: 100%;
-    background-color: white;
-    box-shadow: 0 2px 10px rgba(97, 97, 97, 0.1);
-    margin-bottom: 20px;
+.pfp-cont{
+    border: 1px solid rgb(203, 203, 203);
+    border-radius: 10px;
     padding: 10px;
-    border-radius: 8px;
+}
+.pfp-cont label{
+    font-size: 14px;
+}
+.pfp-cont input{
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    margin-top: 10px;
+}
+/* ======================================================== */
+.feed-cont{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+
+
+.tab-nav{
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    border-bottom: 1px solid rgb(231, 231, 231);
+    margin-bottom: 15px;
+    /* background-color: rgb(238, 154, 154); */
 }
-
-.user-info{
-    /* background-color: rgb(201, 121, 121); */
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-}
-
-
-.content-details{
-    /* background-color: rgb(201, 121, 121); */
-    display: flex;
-    align-items: center;
-    gap: 15px;
-
-}
-.user-img{
-    width: 40px;
-    height: 40px;
-    background-color: rgb(62, 61, 61);
-    border-radius: 50%;
-}
-.user-name{
+.tab-nav button{
+    /* background-color: red; */
+    padding: 20px 15px;
     font-weight: 600;
-    cursor: pointer;
-}
-
-.action-cont{
-    /* background-color: rgb(201, 121, 121); */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    padding: 10px 0;
-    border-top: 1px solid rgb(184, 184, 184);
-}
-
-.date-time{
-    font-size: 10px;
-    color: rgb(45, 130, 248);
-
-}
-.action-items{
-    display: flex;
-    gap: 10px;
-}
-
-.action-items button{
+    font-size: 15px;
     background-color: transparent;
     outline: none;
     border: none;
     cursor: pointer;
-    transition: 0.3s ease;
+    border-bottom: 2px solid transparent;
+    transition: 0.5s ease;
 }
-.action-items button:active{
-    transform: scale(0.9);
+.tab-nav button:hover{
+    border-color: rgb(240, 28, 123);
+}
+.tab-active{
+    color: rgb(240, 28, 123);
+    border-color: rgb(240, 28, 123) !important;
+}
+/* ================================================================== */
+
+.post-card{
+    background-color: white;
+    border: 1px solid rgb(224, 224, 224);
+    border-radius: 20px;
+    margin: 10px 0;
+    width: 300px;
+}
+.post-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+.postheader-profile-info{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.pfp-placeholder{
+    color: rgb(240, 28, 123);
+    font-weight: 700;
+    background-color: rgb(253, 198, 223);
+    font-size: 14px;
+    border: 1px solid rgb(240, 28, 123);
+    border-radius: 50%;
+    /* padding: 8px; */
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.heart{
-    display: flex;
-    gap: 5px;
-    align-items: center;
-    color: rgb(37, 69, 100);
+.username-placeholder{
+    color: rgb(240, 28, 123);
     font-weight: 600;
 }
-.heart svg{
-    width: 15px;
-    height: 15px;
+.post-header-btns-cont{
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
-.delete{
-    font-size: 13px;
-    color: rgb(103, 109, 114);
+.post-header-btns-cont button{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 12px;
+    cursor: pointer;
+}
+.edit-btn{
+    color: rgb(0, 123, 255);
+}
+.delete-btn{
+    color: rgb(109, 109, 109);
+}
 
+
+
+
+.post-pic-cont{
+    width: 100%;
+    height: 200px;
+    background-color: rgba(239, 62, 142, 0.526);
+}
+
+.post-pic-cont img{
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -179,114 +337,174 @@ body{
 
 
 
+.reaction-container{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+}
+.reaction-btn{
+    font-size: 20px;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    padding: 0 10px;
+    /* background-color: rgb(44, 76, 98); */
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.reaction-btn:hover{
+    background-color: rgb(44, 76, 98);
+}
+.reaction-btn:active{
+    transform: scale(0.9);
+}
+.reaction-count{
+    color: rgb(125, 125, 125);
+    font-size: 12px;
+    font-weight: 700;
+}
 
-/* ==================================================== */
-.creat-post-modal{
-    background-color: rgba(232, 55, 55, 0.2);
+
+
+.post-caption-cont{
+    padding: 5px 20px;
+}
+.post-username{
+    font-weight: 600;
+    font-size: 14px;
+}
+.post-caption{
+    font-size: 14px;
+    color: rgb(76, 66, 66);
+}
+
+
+
+/* ======================================================= */
+
+
+.profile-cont{
+    background-color: rgb(44, 76, 98);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.profile-pic{
+    color: rgb(240, 28, 123);
+    font-weight: 700;
+    background-color: rgb(253, 198, 223);
+    font-size: 40px;
+    /* padding: 30px; */
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid rgb(240, 28, 123);
+    border-radius: 50%;
+}   
+.profile-pic img{
+    width: 100%;
+    height: 100%;
+}
+.profile-username{
+    color: rgb(217, 223, 228);
+}
+.profile-postcount{
+    color: rgb(177, 177, 177);
+    font-size: 15px;
+}
+
+.no-post-msg{
+    /* background-color: pink; */
+    padding: 30px;
+    margin-top: 50px;
+    color: rgb(141, 154, 165);
+    text-align: center;
+    border: 2px dashed rgb(223, 223, 223);
+    border-radius: 10px;
+    font-size: 16px;
+    font-style: italic;
+}
+
+
+
+
+/* ====================================================== */
+.modal-overlay{
+    background-color: rgba(0, 0, 0, 0.3);
     width: 100%;
     height: 100vh;
     position: fixed;
+    top: 0;
+    left: 0;
+
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-.create-post-cont{
-    width: 450px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.modal-content-cont{
     background-color: white;
     padding: 30px;
-    border-radius: 12px;
+    border-radius: 15px;
+    width: 500px;
 }
-.creat-post-modal h2{
-    width: 100%;
-    width: fit-content;
-    /* background-color: rgb(130, 124, 124); */
-    padding: 5px 0;
-    border-bottom: 1px solid rgb(197, 197, 197);
+.modal-content-cont h2{
+    text-align: left;
     margin-bottom: 20px;
-
 }
-.input-feild-cont{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    margin-bottom: 20px;
-    /* background-color: rgb(105, 91, 91); */
-}
-.input-feild-cont input{
+.modal-content-cont input{
     width: 100%;
     outline: none;
     border: 1px solid rgb(190, 190, 190);
     border-radius: 12px;
     padding: 15px 10px;
     font-size: 15px;
-    transition: 0.3s ease;
+    margin-bottom: 20px;
 }
-.input-feild-cont input:focus{
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
-
+.or{
+    font-size: 13px;
+    color: rgb(93, 93, 93);
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-
-.create-post-btns{
+.modal-btns-cont{
     display: flex;
     justify-content: end;
     align-items: center;
     gap: 10px;
-    /* background-color: rgb(105, 91, 91); */
-    width: 100%;
-
 }
-.create-post-btns button{
-    outline: none;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+.modal-btns-cont button{
+    padding: 10px 15px;
+    font-size: 15px;
     font-weight: 600;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
     transition: 0.3s ease;
 }
-.create-post-btns button:active{
+.modal-btns-cont button:active{
     transform: scale(0.9);
 }
-
-.create-btn{
-    background: linear-gradient(160deg, rgb(53, 181, 223), rgb(6, 86, 113));
+.modal-share-btn{
+    background-color: rgb(240, 28, 123);
     color: white;
 }
-.cancle-btn{
-    /* background: linear-gradient(160deg, rgb(214, 215, 215), rgb(144, 144, 144)); */
-    background-color: rgb(193, 193, 193);
-    color: rgb(56, 50, 50);
+.modal-cancel-btn{
+    background-color: #d7d6d6;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

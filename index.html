@@ -3,43 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple App</title>
+    <title>App</title>
     <link rel="stylesheet" href="assets/css.css">
 </head>
 <body>
 
-    <div class="container">
-        <div class="app-control-cont">
-            <div class="header">
-                <h2>Mini App</h2>
-                <button class="add-post" id="add-post">Post Now</button>
-            </div>
 
-            <div class="feed-cont" id="feed-cont">
-                <!-- FEED -->
-            </div>
+    <div class="app">
+        <div class="header">
+            <h1>App</h1>
 
-        </div>
-    </div>
+            <div class="header-items-cont">
+                <button id="themeToggle" class="theme-btn">
+                    <svg id="sunIcon" class="sunIcon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <svg id="moonIcon" class="moonIcon hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
 
-    <!-- ================================================================= -->
-    <!-- ================================================================= -->
-    
-    <div class="creat-post-modal hidden" id="post-modal">
-        <div class="create-post-cont">
-            <h2>Create New Post</h2>
-            <div class="input-feild-cont">
-                <input id="caption-input" type="text" placeholder="Caption">
-            </div>
-            <div class="create-post-btns">
-                <button class="create-btn" id="create-btn">Create</button>
-                <button class="cancle-btn" id="cancle-btn">Cancle</button>
+                <div id="authStatus" class="status-cont flex items-center space-x-2">
+                    <div id="userPfpContainer" class="profile-placeholder flex items-center space-x-2 hidden">
+                    </div>
+
+                    <button id="logoutBtn" class="logout hidden">Logout</button>
+                    <button id="newPostBtn" class="add-post-btn hidden">+ Post</button>
+                </div>
             </div>
         </div>
 
+        <div id="mainContainer">
+
+            <div id="authView" class="login-form">
+                <h2 id="authHeader">Login to MicroPic</h2>
+
+                <input type="text" id="authUsername" placeholder="Username" maxlength="20">
+
+                <input type="password" id="authPassword" placeholder="Password">
+
+                <div id="pfpUploadContainer" class="pfp-cont hidden">
+                    <label for="authPfpFile">Profile Picture (Optional)</label>
+                    <input type="file" id="authPfpFile" accept="image/png, image/jpeg">
+                </div>
+
+                <span id="authMessage" class="auth-msg hidden"></span>
+
+                <div class="form-btns-cont">
+                    <button id="loginBtn" class="login-btn">Login</button>
+                    <button id="showSignupBtn" class="grey-msg-btn">
+                        Need an account? Sign Up
+                        <button id="signupBtn" class="signup-btn hidden">Sign Up</button>
+                    </button>
+                    <button id="showLoginBtn" class="grey-msg-btn hidden">Already have an account? Login</button>
+                </div>
+            </div>
+
+            <div id="appView" class="hidden">
+                <nav class="tab-nav">
+                    <button data-tab="feed" class="tab-btn">Feed</button>
+                    <button data-tab="profile" class="tab-btn">Profile</button>
+                </nav>
+
+                <div id="profileHeader" class="profile-cont hidden">
+                    <div id="profilePfp" class="profile-pic"></div>
+                    <h2 class="profile-username" id="profileUsername"></h2>
+                    <p class="profile-postcount" id="profilePostCount">0 posts shared.</p>
+                </div>
+
+                <div id="feedContainer" class="feed-cont"></div>
+
+                <div id="emptyMessage" class="no-post-msg hidden">No posts yet. Be the first to share!</div>
+            </div>
+        </div>
+
+        <div id="postModal" class="modal-overlay hidden">
+            <div id="modalContent" class="modal-content-cont">
+                <h2 id="modalTitle" class="text-2xl font-bold mb-4 text-primary">New Photo Post</h2>
+                <input type="hidden" id="postIdToEdit">
+
+                <div class="space-y-3 mb-4">
+                    <input type="url" id="postImageUrl" placeholder="Image URL (or leave blank for custom upload)" class="w-full p-3 border border-default rounded-lg focus:ring-pink-500 focus:border-pink-500 transition bg-card text-primary text-sm">
+                    <p class="text-center text-xs text-gray-500 dark:text-gray-400">OR</p>
+
+                    <label for="postImageFile" class="block text-sm font-medium text-primary mb-1">Upload from Computer (JPG/PNG)</label>
+                    <input type="file" id="postImageFile" accept="image/png, image/jpeg" class="w-full text-sm text-primary file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-pink-50 file:text-pink-700 hover:file:bg-pink-100 dark:file:bg-pink-900 dark:file:text-pink-300 dark:hover:file:bg-pink-800">
+
+                    <p id="imageSourceMessage" class="text-xs text-green-600 dark:text-green-400 hidden">Current image is a custom file upload.</p>
+                </div>
+
+                <input type="text" id="postTitle" placeholder="Caption (e.g., Beach trip, Sunset vibes...)" maxlength="100" class="w-full p-3 mb-2 border border-default rounded-lg focus:ring-pink-500 focus:border-pink-500 transition bg-card text-primary">
+                <span id="validationMessage" class="text-red-500 text-sm mb-4 block hidden">Caption is required.</span>
+
+                <div class="modal-btns-cont flex justify-end space-x-3">
+                    <button id="cancelPostBtn" class="modal-cancel-btn bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded-lg transition">Cancel</button>
+                    <button id="submitPostBtn" class="modal-share-btn bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition">Share Photo</button>
+                </div>
+            </div>
+        </div>
+
     </div>
-
-
 
     <script src="assets/js.js"></script>
 </body>
