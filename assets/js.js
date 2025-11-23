@@ -261,10 +261,10 @@ function savePost() {
     const editId = postIdToEdit.value;
     
     if (title.length === 0) {
-        validationMessage.classList.remove('hidden');
-        return;
+        validationMessage.classList.add('hidden');
+    } else {
+        validationMessage.classList.add('hidden');
     }
-    validationMessage.classList.add('hidden');
 
     const placeholderId = editId ? parseInt(editId) : Date.now();
 
@@ -280,6 +280,8 @@ function savePost() {
         savePostData(title, imageUrl, placeholderId, editId);
     } else if (!imageUrl) {
         imageUrl = generatePlaceholderUrl(placeholderId, title);
+        savePostData(title, imageUrl, placeholderId, editId);
+    } else {
         savePostData(title, imageUrl, placeholderId, editId);
     }
 }
@@ -308,7 +310,7 @@ function savePostData(title, imageUrl, placeholderId, editId) {
 
     savePosts();
     closeModal();
-    renderFeed();
+    handleTabChange(currentTab);
 }
 // ==============================================================
 // ==============================================================
