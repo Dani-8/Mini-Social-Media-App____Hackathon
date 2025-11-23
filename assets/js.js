@@ -33,6 +33,7 @@ const userPfpContainer = document.getElementById('userPfpContainer');
 const profileHeader = document.getElementById('profileHeader');
 const profileUsername = document.getElementById('profileUsername');
 const profilePfp = document.getElementById('profilePfp');
+const profilePostCount = document.getElementById('profilePostCount');
 
 const tabButtons = document.querySelectorAll('.tab-btn');
 const modalTitle = document.getElementById('modalTitle');
@@ -462,6 +463,7 @@ function handleTabChange(tabName) {
         
         profileUsername.textContent = currentUser.username;
         profilePfp.innerHTML = renderPfpHtml(currentUser.pfpUrl, currentUser.username, 'w-24 h-24 text-3xl');
+        if (profilePostCount) profilePostCount.textContent = `${postsToDisplay.length} posts shared.`;
     }
 
     renderFeed(postsToDisplay);
