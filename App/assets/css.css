@@ -1,0 +1,465 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(246, 251, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;  
+}
+
+.hidden{
+    display: none !important;
+}
+/* ===================================================================== */
+
+.app{
+    width: 1000px;
+    background-color: white;
+    box-shadow: 0 3px 15px rgba(154, 154, 154, 0.2);
+    padding: 30px;  
+    border-radius: 15px;}
+
+.header{
+    /* background-color: rgb(207, 142, 142); */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(211, 211, 211);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+.header h1{
+    color: rgb(231, 47, 130);
+    font-weight: 700;
+    font-size: 40px;
+
+}
+
+
+
+.theme-btn{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease;
+}
+.theme-btn:hover{
+    background-color: rgb(5, 68, 113);
+}
+.theme-btn:active{
+    transform: scale(0.9);
+}
+.theme-btn svg{
+    height: 22px;
+    width: 22px;
+}
+.sunIcon{
+    color: rgb(255, 204, 0);
+}
+.moonIcon{
+    color: rgb(255, 255, 255);
+}
+/* ------------------------------------ */
+
+.header-items-cont{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+.status-cont{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.status-cont button{
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    color: white;
+    padding: 4px 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.status-cont button:active{
+    transform: scale(0.9);
+}
+.logout{
+    background-color: rgb(44, 76, 98);
+    font-size: 12px;
+    font-weight: 600;
+}
+.add-post-btn{
+    font-weight: 600;
+    font-size: 17px;
+    background-color: rgb(231, 47, 130);
+}
+
+.profile-placeholder{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+.profile-placeholder img{
+    width: 100%;
+    height: 40px;
+}
+
+
+
+
+
+/* ============================================================== */
+
+.main-cont{
+    background-color: rgb(245, 155, 155);
+    display: flex;
+
+}
+
+.login-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+.login-form h2{
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.login-form input{
+    width: 100%;
+    border-radius: 10px;
+    padding: 15px 10px;
+    outline: none;
+    border: 1px solid rgb(203, 203, 203);
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.auth-msg{
+    color: rgb(194, 22, 22);
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
+.form-btns-cont{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.login-btn{
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    border: none;
+    outline: none;
+    background-color: rgb(240, 28, 123);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.login-btn:active{
+    transform: scale(0.9);
+}
+.signup-btn{
+    padding: 15px;
+    font-size: 18px;
+    color: white;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    background-color: rgb(240, 28, 123);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.signup-btn:active{
+    transform: scale(0.9);
+}
+
+.grey-msg-btn{
+    color: rgb(183, 183, 183);
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.grey-msg-btn:active{
+    transform: scale(0.9);
+}
+
+
+.pfp-cont{
+    border: 1px solid rgb(203, 203, 203);
+    border-radius: 10px;
+    padding: 10px;
+}
+.pfp-cont label{
+    font-size: 14px;
+}
+.pfp-cont input{
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    margin-top: 10px;
+}
+/* ======================================================== */
+.feed-cont{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+
+
+.tab-nav{
+    display: flex;
+    border-bottom: 1px solid rgb(231, 231, 231);
+    margin-bottom: 15px;
+    /* background-color: rgb(238, 154, 154); */
+}
+.tab-nav button{
+    /* background-color: red; */
+    padding: 20px 15px;
+    font-weight: 600;
+    font-size: 15px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: 0.5s ease;
+}
+.tab-nav button:hover{
+    border-color: rgb(240, 28, 123);
+}
+.tab-active{
+    color: rgb(240, 28, 123);
+    border-color: rgb(240, 28, 123) !important;
+}
+/* ================================================================== */
+
+.post-card{
+    background-color: white;
+    border: 1px solid rgb(224, 224, 224);
+    border-radius: 20px;
+    margin: 10px 0;
+    width: 300px;
+}
+.post-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+.postheader-profile-info{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.pfp-placeholder{
+    color: rgb(240, 28, 123);
+    font-weight: 700;
+    background-color: rgb(253, 198, 223);
+    font-size: 14px;
+    border: 1px solid rgb(240, 28, 123);
+    border-radius: 50%;
+    /* padding: 8px; */
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.username-placeholder{
+    color: rgb(240, 28, 123);
+    font-weight: 600;
+}
+.post-header-btns-cont{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.post-header-btns-cont button{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 12px;
+    cursor: pointer;
+}
+.edit-btn{
+    color: rgb(0, 123, 255);
+}
+.delete-btn{
+    color: rgb(109, 109, 109);
+}
+
+
+
+
+.post-pic-cont{
+    width: 100%;
+    height: 200px;
+    background-color: rgba(239, 62, 142, 0.526);
+}
+
+.post-pic-cont img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+.reaction-container{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px;
+}
+.reaction-btn{
+    font-size: 20px;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    padding: 0 10px;
+    /* background-color: rgb(44, 76, 98); */
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.reaction-btn:hover{
+    background-color: rgb(44, 76, 98);
+}
+.reaction-btn:active{
+    transform: scale(0.9);
+}
+.reaction-count{
+    color: rgb(125, 125, 125);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+
+.post-caption-cont{
+    padding: 5px 20px;
+}
+.post-username{
+    font-weight: 600;
+    font-size: 14px;
+}
+.post-caption{
+    font-size: 14px;
+    color: rgb(76, 66, 66);
+}
+
+
+
+/* ======================================================= */
+
+
+.profile-cont{
+    background-color: rgb(44, 76, 98);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.profile-pic{
+    color: rgb(240, 28, 123);
+    font-weight: 700;
+    background-color: rgb(253, 198, 223);
+    font-size: 40px;
+    /* padding: 30px; */
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid rgb(240, 28, 123);
+    border-radius: 50%;
+}   
+.profile-pic img{
+    width: 100%;
+    height: 100%;
+}
+.profile-username{
+    color: rgb(217, 223, 228);
+}
+.profile-postcount{
+    color: rgb(177, 177, 177);
+    font-size: 15px;
+}
+
+.no-post-msg{
+    /* background-color: pink; */
+    padding: 30px;
+    margin-top: 50px;
+    color: rgb(141, 154, 165);
+    text-align: center;
+    border: 2px dashed rgb(223, 223, 223);
+    border-radius: 10px;
+    font-size: 16px;
+    font-style: italic;
+}
+
+
+
+
+/* ====================================================== */
+.modal-overlay{
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content-cont{
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+
+}
+
+
+
+

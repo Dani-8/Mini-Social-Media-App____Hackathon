@@ -10,26 +10,26 @@
 
     <div class="container">
         <div class="app-control-cont">
-            <ul class="feed-cont" id="feed-cont">
-                <div></div>
-                <div></div>
-            </ul>
+            <div class="header">
+                <h2>Mini App</h2>
+                <button class="add-post" id="add-post">Post Now</button>
+            </div>
+
+            <div class="feed-cont" id="feed-cont">
+                <!-- FEED -->
+            </div>
 
         </div>
-
-
-
     </div>
 
     <!-- ================================================================= -->
     <!-- ================================================================= -->
     
-    <div class="creat-post-modal hidden">
+    <div class="creat-post-modal hidden" id="post-modal">
         <div class="create-post-cont">
             <h2>Create New Post</h2>
             <div class="input-feild-cont">
-                <input type="text" placeholder="Caption">
-                <input type="text" placeholder="Description">
+                <input id="caption-input" type="text" placeholder="Caption">
             </div>
             <div class="create-post-btns">
                 <button class="create-btn" id="create-btn">Create</button>
@@ -41,6 +41,6 @@
 
 
 
-    <script src="js.js"></script>
+    <script src="assets/js.js"></script>
 </body>
 </html>
