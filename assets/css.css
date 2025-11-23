@@ -12,6 +12,40 @@ body{
     padding: 30px;  
 }
 
+/* Theme variables (light by default). JS toggles `dark` / `light` on the <body>. */
+body.light{
+    --bg: #f6fbff;
+    --app-bg: #ffffff;
+    --text: #222222;
+    --muted: #4c4242;
+    --primary: #f02f7b;
+    --card-border: #e0e0e0;
+    --header-border: #d3d3d3;
+    --pfp-bg: #fde6ef;
+    --pfp-fg: #f02f7b;
+    --post-pic-bg: rgba(239, 62, 142, 0.526);
+    --reaction-hover: rgba(44,76,98,0.08);
+    --input-border: #cbcbcb;
+    --profile-bg: #2c4c62;
+}
+
+body.dark{
+    background-color: rgb(2, 43, 69);
+    --bg: #071022;
+    --app-bg: #0f1724;
+    --text: #e6eef8;
+    --muted: #c9d6e3;
+    --primary: #ff79b0;
+    --card-border: #172033;
+    --header-border: #1f2a37;
+    --pfp-bg: #122433;
+    --pfp-fg: #ff79b0;
+    --post-pic-bg: rgba(20,30,40,0.45);
+    --reaction-hover: rgba(255,255,255,0.04);
+    --input-border: #2b3946;
+    --profile-bg: #10202b;
+}
+
 .hidden{
     display: none !important;
 }
@@ -19,31 +53,33 @@ body{
 
 .app{
     width: 1000px;
-    background-color: white;
-    box-shadow: 0 3px 15px rgba(154, 154, 154, 0.2);
+    background-color: var(--app-bg, white);
+    box-shadow: 0 3px 15px rgba(154, 154, 154, 0.06);
     padding: 30px;  
-    border-radius: 15px;}
+    border-radius: 15px;
+    color: var(--text);
+}
 
 .header{
     /* background-color: rgb(207, 142, 142); */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgb(211, 211, 211);
+    border-bottom: 1px solid var(--header-border, rgb(211, 211, 211));
     padding-bottom: 15px;
     margin-bottom: 15px;
 }
 .header h1{
-    color: rgb(231, 47, 130);
+    color: var(--primary);
     font-weight: 700;
     font-size: 40px;
-
 }
 
 
 
 .theme-btn{
     cursor: pointer;
+    background-color: transparent;
     border: none;
     outline: none;
     padding: 5px;
@@ -54,7 +90,7 @@ body{
     transition: 0.3s ease;
 }
 .theme-btn:hover{
-    background-color: rgb(5, 68, 113);
+    background-color: rgba(5, 68, 113, 0.08);
 }
 .theme-btn:active{
     transform: scale(0.9);
@@ -97,14 +133,14 @@ body{
     transform: scale(0.9);
 }
 .logout{
-    background-color: rgb(44, 76, 98);
+    background-color: var(--profile-bg, rgb(44,76,98));
     font-size: 12px;
     font-weight: 600;
 }
 .add-post-btn{
     font-weight: 600;
     font-size: 17px;
-    background-color: rgb(231, 47, 130);
+    background-color: var(--primary, rgb(231,47,130));
 }
 
 .profile-placeholder{
@@ -125,9 +161,8 @@ body{
 /* ============================================================== */
 
 .main-cont{
-    background-color: rgb(245, 155, 155);
+    background-color: var(--main-cont-bg, transparent);
     display: flex;
-
 }
 
 .login-form{
@@ -147,7 +182,9 @@ body{
     border-radius: 10px;
     padding: 15px 10px;
     outline: none;
-    border: 1px solid rgb(203, 203, 203);
+    border: 1px solid var(--input-border, rgb(203, 203, 203));
+    background: transparent;
+    color: var(--text);
     font-size: 15px;
     margin-bottom: 10px;
 }
@@ -172,7 +209,7 @@ body{
     color: white;
     border: none;
     outline: none;
-    background-color: rgb(240, 28, 123);
+    background-color: var(--primary, rgb(240, 28, 123));
     border-radius: 10px;
     cursor: pointer;
     transition: 0.3s ease;
@@ -187,7 +224,7 @@ body{
     font-weight: 600;
     border: none;
     outline: none;
-    background-color: rgb(240, 28, 123);
+    background-color: var(--primary, rgb(240, 28, 123));
     border-radius: 10px;
     cursor: pointer;
     transition: 0.3s ease;
@@ -211,7 +248,7 @@ body{
 
 
 .pfp-cont{
-    border: 1px solid rgb(203, 203, 203);
+    border: 1px solid var(--input-border, rgb(203, 203, 203));
     border-radius: 10px;
     padding: 10px;
 }
@@ -237,7 +274,6 @@ body{
     display: flex;
     border-bottom: 1px solid rgb(231, 231, 231);
     margin-bottom: 15px;
-    /* background-color: rgb(238, 154, 154); */
 }
 .tab-nav button{
     /* background-color: red; */
@@ -255,14 +291,14 @@ body{
     border-color: rgb(240, 28, 123);
 }
 .tab-active{
-    color: rgb(240, 28, 123);
-    border-color: rgb(240, 28, 123) !important;
+    color: var(--primary);
+    border-color: var(--primary) !important;
 }
 /* ================================================================== */
 
 .post-card{
-    background-color: white;
-    border: 1px solid rgb(224, 224, 224);
+    background-color: var(--app-bg, white);
+    border: 1px solid var(--card-border, rgb(224,224,224));
     border-radius: 20px;
     margin: 10px 0;
     width: 300px;
@@ -279,13 +315,12 @@ body{
     gap: 10px;
 }
 .pfp-placeholder{
-    color: rgb(240, 28, 123);
+    color: var(--pfp-fg, rgb(240,28,123));
     font-weight: 700;
-    background-color: rgb(253, 198, 223);
+    background-color: var(--pfp-bg, rgb(253,198,223));
     font-size: 14px;
-    border: 1px solid rgb(240, 28, 123);
+    border: 1px solid var(--pfp-fg, rgb(240,28,123));
     border-radius: 50%;
-    /* padding: 8px; */
     height: 30px;
     width: 30px;
     display: flex;
@@ -294,7 +329,7 @@ body{
 }
 
 .username-placeholder{
-    color: rgb(240, 28, 123);
+    color: var(--primary);
     font-weight: 600;
 }
 .post-header-btns-cont{
@@ -322,7 +357,7 @@ body{
 .post-pic-cont{
     width: 100%;
     height: 200px;
-    background-color: rgba(239, 62, 142, 0.526);
+    background-color: var(--post-pic-bg, rgba(239,62,142,0.526));
 }
 
 .post-pic-cont img{
@@ -358,13 +393,13 @@ body{
     transition: 0.3s ease;
 }
 .reaction-btn:hover{
-    background-color: rgb(44, 76, 98);
+    background-color: var(--reaction-hover, rgb(44,76,98));
 }
 .reaction-btn:active{
     transform: scale(0.9);
 }
 .reaction-count{
-    color: rgb(125, 125, 125);
+    color: var(--muted);
     font-size: 12px;
     font-weight: 700;
 }
@@ -380,7 +415,7 @@ body{
 }
 .post-caption{
     font-size: 14px;
-    color: rgb(76, 66, 66);
+    color: var(--muted);
 }
 
 
@@ -389,7 +424,7 @@ body{
 
 
 .profile-cont{
-    background-color: rgb(44, 76, 98);
+    background-color: var(--profile-bg, rgb(44,76,98));
     padding: 30px;
     margin-bottom: 30px;
     border-radius: 15px;
