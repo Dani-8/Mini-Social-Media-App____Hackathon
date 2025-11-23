@@ -457,8 +457,60 @@ body{
     background-color: white;
     padding: 30px;
     border-radius: 15px;
-
+    width: 500px;
 }
+.modal-content-cont h2{
+    text-align: left;
+    margin-bottom: 20px;
+}
+.modal-content-cont input{
+    width: 100%;
+    outline: none;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 12px;
+    padding: 15px 10px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+.or{
+    font-size: 13px;
+    color: rgb(93, 93, 93);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-btns-cont{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+}
+.modal-btns-cont button{
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.modal-btns-cont button:active{
+    transform: scale(0.9);
+}
+.modal-share-btn{
+    background-color: rgb(240, 28, 123);
+    color: white;
+}
+.modal-cancel-btn{
+    background-color: #d7d6d6;
+}
+
+
+
+
+
+
 
 
 

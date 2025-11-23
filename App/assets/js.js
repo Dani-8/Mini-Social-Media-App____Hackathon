@@ -41,7 +41,6 @@ const modalTitle = document.getElementById('modalTitle');
 const cancelPostBtn = document.getElementById('cancelPostBtn');
 const submitPostBtn = document.getElementById('submitPostBtn');
 const postTitleInput = document.getElementById('postTitle');
-const postDescriptionTextarea = document.getElementById('postDescription');
 const postImageUrlInput = document.getElementById('postImageUrl');
 const postImageFile = document.getElementById('postImageFile');
 const imageSourceMessage = document.getElementById('imageSourceMessage');
@@ -282,7 +281,6 @@ async function savePost() {
     if (!currentUser) return;
 
     const title = postTitleInput.value.trim();
-    const description = postDescriptionTextarea.value.trim();
     let imageUrl = postImageUrlInput.value.trim();
     const imageFile = postImageFile.files[0];
     const editId = postIdToEdit.value;
@@ -317,7 +315,6 @@ async function savePost() {
         const postIndex = posts.findIndex(p => p.id === parseInt(editId));
         if (postIndex > -1) {
             posts[postIndex].title = title;
-            posts[postIndex].description = description;
             posts[postIndex].imageUrl = imageUrl;
         }
     } else {
@@ -329,7 +326,6 @@ async function savePost() {
             username: currentUser.username,  
             pfpUrl: currentUser.pfpUrl || '', // Store PFP URL with post
             title: title,
-            description: description,
             imageUrl: imageUrl,
             reactions: REACTIONS.reduce((acc, r) => ({ ...acc, [r]: 0 }), {}),
             reactionsByUser: REACTIONS.reduce((acc, r) => ({ ...acc, [r]: [] }), {})
@@ -348,7 +344,6 @@ function openCreateModal() {
     submitPostBtn.textContent = 'Share Photo';
     postIdToEdit.value = '';
     postTitleInput.value = '';
-    postDescriptionTextarea.value = '';
     postImageUrlInput.value = '';
     postImageFile.value = ''; // Clear file input
     postImageUrlInput.disabled = false; // Enable URL input
@@ -365,7 +360,6 @@ function openEditModal(id) {
     submitPostBtn.textContent = 'Save Changes';
     postIdToEdit.value = post.id;
     postTitleInput.value = post.title;
-    postDescriptionTextarea.value = post.description;
     postImageFile.value = ''; // Clear file input on edit
 
     const isBase64 = post.imageUrl.startsWith('data:');
@@ -391,7 +385,6 @@ function closeModal() {
     postModal.classList.add('hidden');
     // Reset all inputs and state
     postTitleInput.value = '';
-    postDescriptionTextarea.value = '';
     postImageUrlInput.value = '';
     postImageFile.value = '';
     postIdToEdit.value = '';
@@ -588,12 +581,10 @@ function renderFeed(postsToDisplay) {
                     ${renderReactions(post.id, post)}
                 </div>
                 
-                <!-- Caption/Description -->
                 <p class="post-caption-cont">
                     <span class="post-username">${post.username}</span>
                     <span class="post-caption">${post.title}</span>
                 </p>
-                ${post.description ? `<p class="text-[0.65rem] text-gray-500 dark:text-gray-400 mt-1 whitespace-pre-wrap">${post.description}</p>` : ''}
             </div>
         `;
         feedContainer.appendChild(postElement);
