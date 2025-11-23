@@ -47,6 +47,11 @@ const postIdToEdit = document.getElementById('postIdToEdit');
 const themeToggle = document.getElementById('themeToggle');
 const sunIcon = document.getElementById('sunIcon');
 const moonIcon = document.getElementById('moonIcon');
+// ==============================================================
+// ==============================================================
+// ==============================================================
+
+
 
 function toggleTheme() {
     const isDark = body.classList.toggle('dark');
@@ -55,6 +60,7 @@ function toggleTheme() {
     moonIcon.classList.toggle('hidden', !isDark);
     localStorage.setItem('theme', isDark ? 'dark' : 'light');
 }
+// ==============================================================
 
 function loadTheme() {
     const savedTheme = localStorage.getItem('theme') || 'light';
@@ -94,6 +100,8 @@ function saveUsers() {
 function saveCurrentUser() {
     localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(currentUser));
 }
+// ==============================================================
+
 
 function renderPfpHtml(pfpUrl, username, sizeClass) {
     const initials = username.substring(0, 2).toUpperCase();
@@ -225,6 +233,10 @@ function displayAuthMessage(message) {
     authMessage.classList.remove('hidden');
     authUsernameInput.focus();
 }
+// ==============================================================
+// ==============================================================
+// ==============================================================
+
 
 function generatePlaceholderUrl(id, title) {
     const width = 500;
@@ -298,6 +310,10 @@ function savePostData(title, imageUrl, placeholderId, editId) {
     closeModal();
     renderFeed();
 }
+// ==============================================================
+// ==============================================================
+// ==============================================================
+
 
 function openCreateModal() {
     if (!currentUser) return;
@@ -352,6 +368,9 @@ function closeModal() {
     postImageUrlInput.placeholder = 'Image URL (or leave blank for custom upload)';
     imageSourceMessage.classList.add('hidden');
 }
+// ==============================================================
+// ==============================================================
+// ==============================================================
 
 function toggleReaction(id, newReaction) {
     if (!currentUser) return;
@@ -390,6 +409,8 @@ function toggleReaction(id, newReaction) {
     savePosts();
     handleTabChange(currentTab);
 }
+// ==============================================================
+
 
 function deletePost(id) {
     const postElement = document.getElementById(`post-${id}`);
@@ -414,6 +435,8 @@ function deletePost(id) {
         }
     }, 3000); 
 }
+// ==============================================================
+
 
 function handleTabChange(tabName) {
     if (!currentUser) return;
@@ -441,6 +464,8 @@ function handleTabChange(tabName) {
 
     renderFeed(postsToDisplay);
 }
+// ==============================================================
+
 
 function renderPostHeader(post) {
     const isOwner = post.userId === currentUser?.userId;
@@ -464,6 +489,8 @@ function renderPostHeader(post) {
         ` : ''}
     `;
 }
+// ==============================================================
+
 
 function renderReactions(postId, post) {
     let html = '';
@@ -488,6 +515,8 @@ function renderReactions(postId, post) {
     });
     return html;
 }
+// ==============================================================
+
 
 function renderFeed(postsToDisplay) {
     feedContainer.innerHTML = '';
@@ -542,6 +571,12 @@ function renderFeed(postsToDisplay) {
         });
     });
 }
+// ==============================================================
+// ==============================================================
+// ==============================================================
+// ==============================================================
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     loadTheme();
@@ -570,3 +605,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+// ==============================================================
